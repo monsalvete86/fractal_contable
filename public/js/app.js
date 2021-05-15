@@ -53030,13 +53030,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -53532,7 +53525,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 me.id_tercero = '';
                 me.id_tercero_det = '';
                 me.doc_tercero = '';
-                me.anio = '2018';
                 me.listado = 1;
                 me.fecha = '';
                 me.tipo_formato_busq = '';
@@ -54845,31 +54837,6 @@ var render = function() {
                       ],
                       2
                     )
-                  ]),
-                  _vm._v(" "),
-                  _c("nav", [
-                    _c("ul", { staticClass: "pagination2" }, [
-                      _vm.pagination.current_page < _vm.pagination.last_page
-                        ? _c("li", { staticClass: "page-item" }, [
-                            _c(
-                              "a",
-                              {
-                                staticClass: "page-link",
-                                attrs: { href: "#" },
-                                on: {
-                                  click: function($event) {
-                                    $event.preventDefault()
-                                    _vm.cambiarPagina(
-                                      _vm.pagination.current_page + 1
-                                    )
-                                  }
-                                }
-                              },
-                              [_vm._v("Sig")]
-                            )
-                          ])
-                        : _vm._e()
-                    ])
                   ])
                 ])
               ]

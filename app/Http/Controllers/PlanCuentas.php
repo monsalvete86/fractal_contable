@@ -11,12 +11,11 @@ class PlanCuentas extends Controller
 {
     public function index(Request $request)
     {
-        return $request->anio;
         if (!$request->ajax()) return redirect('/');
         $nd = getDate();
         $buscar = $request->buscar;
         $criterio = $request->criterio;
-        $anio = $request->anio;
+        $anio = $request->anio? $request->anio : $nd['year'];
        // echo "criterio=$criterio buscar=$buscar"; exit;     
         if ($buscar==''){
             $planCuenta = Plancuentas_model::orderBy('codigo', 'asc')->paginate(10);

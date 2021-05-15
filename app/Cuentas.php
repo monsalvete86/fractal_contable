@@ -9,7 +9,7 @@ class Cuentas extends Model
     protected $table = 'cuentas';
     protected $fillable = [
         'id_formato', 'numero', 'tercero', 'debe', 'haber','doc_externo', 'centro_costos', 'detalle', 'fecha', 'base_graba',
-        'usuario', 'cerrado', 'condicion'  , 'cuenta','doc_afecta_long','saldo_cuent'
+        'usuario', 'cerrado', 'condicion'  , 'cuenta','doc_afecta_long','saldo_cuent','num_cuenta', 'acumulado_credito', 'acumulado_debito'
     ];
     public function tercero(){
         return $this->belongsTo('App\Persona');

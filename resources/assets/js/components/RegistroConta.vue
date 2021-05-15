@@ -171,14 +171,7 @@
                                 <li class="page-item" v-if="pagination.current_page < pagination.last_page">
                                     <a class="page-link" href="#" @click.prevent="cambiarPagina(pagination.current_page + 1)">Sig</a>
                                 </li>
-                            </ul>
-                          </nav>
-                          <nav>
-                            <ul class="pagination2">
-                              <li class="page-item" v-if="pagination.current_page < pagination.last_page">
-                                <a class="page-link" href="#" @click.prevent="cambiarPagina(pagination.current_page + 1)">Sig</a>
-                              </li> 
-                            </ul>
+                            </ul>                          
                         </nav>              
                     </div>
                 </template>
@@ -1004,7 +997,6 @@ export default {
                 me.id_tercero= ''   ;
                 me.id_tercero_det= '';            
                 me.doc_tercero= '';
-                me.anio= '2018';
                 me.listado= 1;
                 me.fecha= '';
                 me.tipo_formato_busq= '';

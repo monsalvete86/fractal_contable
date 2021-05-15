@@ -122,7 +122,6 @@ class FormatoController extends Controller
             
             $formatos->numero = $Numero;
 
-
             $formatos->tercero = $request->id_tercero;
             $formatos->formato = $request->formato;
             $formatos->fecha = $request->fecha;
@@ -145,6 +144,13 @@ class FormatoController extends Controller
                 //print_r($cuents); eixt;
             foreach($cuents as $ep=>$cue )
             {
+                $auxSaldo = DB::table('cuentas')->select('acumulado_credito', 'acumulado_debito')
+                    ->where('cuenta', '=',$cue['id_cuenta'])
+                    ->orderBy('id','desc')
+                    ->first();
+                $acum_cred = $auxSaldo->acumulado_credito?? 0;
+                $acum_deb = $auxSaldo->acumulado_debito?? 0;
+
                 $cuenta = new Cuentas();
                 $cuenta->id_formato = $formatos->id;
                 $cuenta->numero =  $formatos->numero;
@@ -158,6 +164,8 @@ class FormatoController extends Controller
                 $cuenta->usuario = \Auth::user()->id;
                 $cuenta->doc_afecta_long = $cue['doc_afecta_long'];
                 $cuenta->doc_externo = $cue['doc_externo'];
+                $cuenta->acumulado_credito = $cue['credito'] + $acum_cred;
+                $cuenta->acumulado_debito = $cue['debito'] + $acum_deb;
                 
                 if($t_f=='Cuentas' && $cuenta->num_cuenta[0] == '2'){
                     $cuenta->saldo_cuent = $cue['credito'];
